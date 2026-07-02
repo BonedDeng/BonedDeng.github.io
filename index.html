@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ============================================================
+       EDIT ME: page title shown in the browser tab / search results
+       ============================================================ -->
+  <title>Bowen Deng — AI for Chemistry & Materials</title>
+  <meta name="description" content="Personal homepage of Bowen Deng, PhD candidate working on AI for chemistry and materials." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Bowen Deng — AI for Chemistry & Materials" />
+  <meta property="og:description" content="PhD candidate working on AI for chemistry and materials." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://boneddeng.github.io/" />
+  <meta property="og:image" content="https://boneddeng.github.io/assets/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <span class="theme-icon">🌙</span>
+  </button>
+
+  <main class="container">
+
+    <!-- ============================================================
+         HERO / ABOUT
+         ============================================================ -->
+    <header class="hero">
+      <img src="assets/profile.jpg" alt="Portrait photo" class="avatar"
+           onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23e5e7eb%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2216%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eyour photo%3C/text%3E%3C/svg%3E'" />
+      <div class="hero-text">
+        <!-- EDIT ME: your name -->
+        <h1>Bowen <span class="lastname">Deng</span></h1>
+        <!-- EDIT ME: one-line tagline -->
+        <p class="tagline">PhD Candidate · AI for Chemistry &amp; Materials</p>
+        <p class="intro">
+          I am a final-year PhD candidate at Chimie ParisTech &ndash; Université PSL,
+          advised by <a href="https://scholar.google.com/citations?user=tj4A19wAAAAJ" target="_blank" rel="noopener">Dr. Thijs Stuyver</a>,
+          working at the intersection of
+          <strong>AI</strong> and <strong>chemistry / materials science</strong>.
+          At its core, my research is about learning across molecular representations and
+          their matching model families &mdash; <strong>1D sequences</strong> (SMILES) with
+          sequence models, <strong>2D molecular graphs</strong> with graph neural networks,
+          and <strong>3D geometry</strong> with machine-learned interatomic potentials
+          &mdash; for reaction discovery, thermochemistry, and molecular / materials property
+          prediction, building models that are accurate, data-efficient, and physically grounded.
+          <br /><br />
+          Previously, I completed my MSc with Prof. Shuangliang Zhao,
+          and worked on computer vision (human action recognition) with Dr. Dongchang Liu
+          at the Institute of Automation, Chinese Academy of Sciences. I am also broadly interested
+          in <strong>large language models</strong>.
+          <br /><br />
+          <em>I am on the job market (industry &amp; academia) starting 2026.</em>
+        </p>
+
+        <!-- Social / contact links -->
+        <nav class="links">
+          <a href="mailto:bowen.deng@chimieparistech.psl.eu">Email</a>
+          <!-- CV download hidden while polishing — re-enable when ready:
+          <a href="assets/cv.pdf">CV</a> -->
+          <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://github.com/BonedDeng" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/bowen-deng-48b66a41b/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/DDBONED1" target="_blank" rel="noopener">X</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         NEWS
+         ============================================================ -->
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <!-- EDIT ME: add newest on top. Keep the list short (5–8 items). -->
+        <li><span class="date">2026</span> New preprint: <em>MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</em>. I am on the job market!</li>
+        <li><span class="date">2025&nbsp;·&nbsp;Nov</span> Paper on screening Diels–Alder reaction space published in <em>Digital Discovery</em>.</li>
+        <li><span class="date">2025</span> Paper on graph-based thermodynamic property prediction published in <em>J. Chem. Inf. Model.</em></li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         PUBLICATIONS
+         ============================================================ -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="section-note">See my <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the full, up-to-date list.</p>
+
+      <ol class="pub-list">
+        <!-- ---- publication item template: copy & edit; fill the "#" links with DOIs/arXiv/code ---- -->
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub1.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</p>
+            <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
+            <p class="pub-venue"><em>ChemRxiv</em> (preprint), 2026</p>
+            <p class="pub-links">
+              <a href="https://chemrxiv.org/doi/10.26434/chemrxiv.15003003" target="_blank" rel="noopener">Paper</a> ·
+              <a href="https://github.com/chimie-paristech-CTM/ThermoMLIP" target="_blank" rel="noopener">Code</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub2.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Screening Diels–Alder reaction space to identify candidate reactions for self-healing polymer applications</p>
+            <p class="pub-authors">Marco Ferrer, <strong>Bowen Deng</strong>, Javier E. Alfonso-Ramos, Thijs Stuyver</p>
+            <p class="pub-venue"><em>Digital Discovery</em>, 4(11), 3400–3410, 2025</p>
+            <p class="pub-links">
+              <a href="https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00340g" target="_blank" rel="noopener">Paper</a> ·
+              <a href="https://chemrxiv.org/engage/chemrxiv/article-details/68222a1f927d1c2e664734b6" target="_blank" rel="noopener">Preprint</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub3.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Graph-based deep learning models for thermodynamic property prediction: the interplay between target definition, data distribution, featurization, and model architecture</p>
+            <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
+            <p class="pub-venue"><em>Journal of Chemical Information and Modeling</em>, 65(2), 649–659, 2025</p>
+            <p class="pub-links">
+              <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.4c02014" target="_blank" rel="noopener">Paper</a> ·
+              <a href="https://github.com/chimie-paristech-CTM/thermo_GNN" target="_blank" rel="noopener">Code</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub4.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Iterative machine learning method for screening high-performance catalysts for H<sub>2</sub>O<sub>2</sub> production</p>
+            <p class="pub-authors"><strong>Bowen Deng</strong>, P. Chen, P. Xie, Z. Wei, S. Zhao</p>
+            <p class="pub-venue"><em>Chemical Engineering Science</em>, 267, 118368, 2023</p>
+            <p class="pub-links">
+              <a href="https://doi.org/10.1016/j.ces.2022.118368" target="_blank" rel="noopener">Paper</a> ·
+              <a href="https://github.com/BonedDeng/Iterative-Machine-Learning-Method-for-Screening-Highly-Performance-Catalysts-for-H2O2-Production" target="_blank" rel="noopener">Code</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub5.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">TadML: A Fast Temporal Action Detection with Mechanics-MLP</p>
+            <p class="pub-authors"><strong>Bowen Deng</strong>, S. Zhao, D. Liu</p>
+            <p class="pub-venue"><em>Computer Graphics International Conference (CGI)</em>, 28–40, 2023</p>
+            <p class="pub-links">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-50069-5_4" target="_blank" rel="noopener">Paper</a> ·
+              <a href="https://arxiv.org/abs/2206.02997" target="_blank" rel="noopener">arXiv</a> ·
+              <a href="https://github.com/BonedDeng/TadML" target="_blank" rel="noopener">Code</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub7.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Catalysis Distillation Neural Network for the Few-Shot Open Catalyst Challenge</p>
+            <p class="pub-authors"><strong>Bowen Deng</strong></p>
+            <p class="pub-venue"><em>arXiv / ChemRxiv</em> (preprint), 2023</p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2305.19545" target="_blank" rel="noopener">arXiv</a> ·
+              <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6473a7e7be16ad5c570f27b5" target="_blank" rel="noopener">ChemRxiv</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="pub-thumb">
+            <img src="assets/pub6.png" alt="paper teaser"
+                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Palladium-based single atom catalysts for high-performance electrochemical production of hydrogen peroxide</p>
+            <p class="pub-authors">Z. Wei, <strong>Bowen Deng</strong>, P. Chen, T. Zhao, S. Zhao</p>
+            <p class="pub-venue"><em>Chemical Engineering Journal</em>, 428, 131112, 2022</p>
+            <p class="pub-links">
+              <a href="https://doi.org/10.1016/j.cej.2021.131112" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </div>
+        </li>
+        <!-- ---- end list ---- -->
+      </ol>
+    </section>
+
+    <!-- ============================================================
+         CV download (education/experience details live in the PDF)
+         ============================================================ -->
+    <!-- CV section hidden while polishing the PDF — re-enable when ready:
+    <section id="cv">
+      <h2>CV</h2>
+      <p class="cv-download"><a href="assets/cv.pdf">↓ Download full CV (PDF)</a></p>
+    </section>
+    -->
+
+
+    <footer>
+      <p>© <span id="year"></span> Bowen Deng. Built as a static site, hosted on GitHub Pages.</p>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

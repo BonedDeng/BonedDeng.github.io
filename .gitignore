@@ -1,0 +1,11 @@
+# Keep the CV internal — do NOT publish while it's being polished
+assets/cv.pdf
+cv.html
+
+# Raw source photo (only the cropped profile.jpg is published)
+ChatGPT Image*.png
+
+# OS / editor cruft
+.DS_Store
+*.swp
+Thumbs.db
