@@ -272,6 +272,8 @@ footer {
   font-size: 0.85rem;
   text-align: center;
 }
+footer p { margin: 4px 0; }
+.visits { font-size: 0.8rem; opacity: 0.8; }
 
 /* =========================================================
    Responsive
