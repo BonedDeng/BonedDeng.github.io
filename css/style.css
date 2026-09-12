@@ -324,45 +324,34 @@ img { max-width: 100%; }
 
 /* =========================================================
    Signature figure — one molecule, three representations.
-   No card, no shadow: it sits directly on the band, sharing the
-   left edge with the heading and the prose above and below it.
-   The only place a saturated accent appears outside an action.
+   No card, no shadow: it sits on the band itself, sharing the left
+   edge with the heading and prose. The shapes live once in <defs>
+   and are placed twice: side by side wide, stacked narrow. Colours
+   come from custom properties, which inherit into the <use> shadow
+   tree, so the figure follows the theme without duplicated markup.
+   The only saturated accent outside an action.
    ========================================================= */
 .repr {
   margin: clamp(28px, 4vw, 44px) 0 clamp(34px, 5vw, 52px);
   color: var(--text);
 }
-.repr svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  font-family: inherit;
-}
+.repr svg { font-family: inherit; }   /* no display here: it would out-specify
+                                         the .repr-wide / .repr-tall switch */
+.repr-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-/* 1D panel: the string as the tokens a sequence model actually sees */
-.r-tok rect { fill: var(--bg); }
-[data-theme="dark"] .r-tok rect { fill: #000; }
-.r-tok rect.r-ring { fill: var(--accent-soft); }
+.repr-wide { display: block; width: 100%; height: auto; }
+.repr-tall { display: none;  width: 100%; max-width: 300px; height: auto; }
 
-.r-mono text {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-  font-size: 14.5px;
-  fill: var(--text);
-  text-anchor: middle;
-}
-.r-mono text.r-ringtext { fill: var(--accent-text); font-weight: 600; }
+/* Cells behind the SMILES tokens: the page ground, so they read as
+   separate glyph slots against the band. */
+:root            { --tok-bg: #ffffff; }
+[data-theme="dark"] { --tok-bg: #000000; }
 
-.r-label text {
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: -0.012em;
-  fill: var(--text);
-  text-anchor: middle;
-}
-.r-sub text {
-  font-size: 12.5px;
-  fill: var(--text-muted);
-  text-anchor: middle;
+/* Below ~620px the side-by-side figure would render its labels under
+   8px. Stack it instead of shrinking it past legibility. */
+@media (max-width: 620px) {
+  .repr-wide { display: none; }
+  .repr-tall { display: block; }
 }
 
 /* =========================================================
@@ -539,12 +528,7 @@ img { max-width: 100%; }
   .pub-list, .card-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* Below ~620px a 760-wide figure would render its labels at ~7px.
-   Scroll it instead of shrinking it past legibility. */
-@media (max-width: 620px) {
-  .repr { overflow-x: auto; }
-  .repr svg { width: 700px; }
-}
+
 
 @media (max-width: 620px) {
   body { font-size: 16px; }
