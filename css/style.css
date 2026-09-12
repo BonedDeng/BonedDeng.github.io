@@ -122,6 +122,8 @@ img { max-width: 100%; }
   margin: 0 auto;
 }
 .wrap--prose { max-width: var(--prose); }
+.wrap--about { max-width: 760px; }
+.wrap--about .intro { max-width: 660px; }   /* comfortable measure, same left edge */
 
 .section-head {
   margin-bottom: clamp(28px, 4vw, 48px);
@@ -321,67 +323,46 @@ img { max-width: 100%; }
 .intro strong { color: var(--text); font-weight: 600; }
 
 /* =========================================================
-   Signature figure — one molecule, three representations
+   Signature figure — one molecule, three representations.
+   No card, no shadow: it sits directly on the band, sharing the
+   left edge with the heading and the prose above and below it.
    The only place a saturated accent appears outside an action.
    ========================================================= */
-.repr-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin: 0 0 clamp(40px, 6vw, 64px);
-}
 .repr {
-  margin: 0;
-  padding: 24px 18px 22px;
-  border-radius: var(--radius);
-  background: var(--card);
-  border: 1px solid transparent;
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-}
-.repr-art {
-  height: 168px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: clamp(28px, 4vw, 44px) 0 clamp(34px, 5vw, 52px);
   color: var(--text);
 }
-.repr-art svg { width: 168px; height: 168px; }
-
-.repr figcaption b {
+.repr svg {
   display: block;
-  font-size: 0.94rem;
-  font-weight: 600;
-  letter-spacing: -0.012em;
-}
-.repr figcaption span {
-  display: block;
-  margin-top: 2px;
-  font-size: 0.83rem;
-  color: var(--text-muted);
+  width: 100%;
+  height: auto;
+  font-family: inherit;
 }
 
 /* 1D panel: the string as the tokens a sequence model actually sees */
-.repr-smiles {
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.tok {
-  width: 26px;
-  height: 33px;
-  display: grid;
-  place-items: center;
-  border-radius: 7px;
-  background: var(--bg-alt);
+.r-tok rect { fill: var(--bg); }
+[data-theme="dark"] .r-tok rect { fill: #000; }
+.r-tok rect.r-ring { fill: var(--accent-soft); }
+
+.r-mono text {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-  font-size: 0.92rem;
-  color: var(--text);
+  font-size: 14.5px;
+  fill: var(--text);
+  text-anchor: middle;
 }
-[data-theme="dark"] .tok { background: #000; }
-.tok--ring {                 /* the ring-closure pair — the bit 1D has to encode */
-  background: var(--accent-soft);
-  color: var(--accent-text);
+.r-mono text.r-ringtext { fill: var(--accent-text); font-weight: 600; }
+
+.r-label text {
+  font-size: 13.5px;
   font-weight: 600;
+  letter-spacing: -0.012em;
+  fill: var(--text);
+  text-anchor: middle;
+}
+.r-sub text {
+  font-size: 12.5px;
+  fill: var(--text-muted);
+  text-anchor: middle;
 }
 
 /* =========================================================
@@ -558,11 +539,11 @@ img { max-width: 100%; }
   .pub-list, .card-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
-@media (max-width: 760px) {
-  .repr-strip { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .repr { padding: 20px 18px 18px; }
-  .repr-art { height: 140px; }
-  .repr-art svg { width: 140px; height: 140px; }
+/* Below ~620px a 760-wide figure would render its labels at ~7px.
+   Scroll it instead of shrinking it past legibility. */
+@media (max-width: 620px) {
+  .repr { overflow-x: auto; }
+  .repr svg { width: 700px; }
 }
 
 @media (max-width: 620px) {
@@ -634,7 +615,7 @@ img { max-width: 100%; }
     --border-strong: rgba(255, 255, 255, 0.6);
     --accent-text: #7ec0ff;
   }
-  .pub, .card, .news-list, .repr { border-color: var(--border); }
+  .pub, .card, .news-list { border-color: var(--border); }
   .nav {
     background: var(--bg);
     -webkit-backdrop-filter: none;
@@ -646,5 +627,4 @@ img { max-width: 100%; }
    (#1c1c1e on #121214 is 1.10:1), so the edge carries the separation. */
 [data-theme="dark"] .pub,
 [data-theme="dark"] .card,
-[data-theme="dark"] .news-list,
-[data-theme="dark"] .repr { border-color: var(--border); }
+[data-theme="dark"] .news-list { border-color: var(--border); }
