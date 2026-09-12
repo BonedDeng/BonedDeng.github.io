@@ -332,7 +332,7 @@ img { max-width: 100%; }
    The only saturated accent outside an action.
    ========================================================= */
 .repr {
-  margin: clamp(28px, 4vw, 44px) 0 clamp(34px, 5vw, 52px);
+  margin: clamp(20px, 2.6vw, 30px) 0 clamp(26px, 3.4vw, 38px);
   color: var(--text);
 }
 .repr svg { font-family: inherit; }   /* no display here: it would out-specify
@@ -340,7 +340,7 @@ img { max-width: 100%; }
 .repr-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .repr-wide { display: block; width: 100%; height: auto; }
-.repr-tall { display: none;  width: 100%; max-width: 300px; height: auto; }
+.repr-tall { display: none;  width: 100%; max-width: 210px; height: auto; }
 
 /* Cells behind the SMILES tokens: the page ground, so they read as
    separate glyph slots against the band. */

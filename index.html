@@ -126,117 +126,103 @@
         </div>
 
         <!-- ============================================================
-             Signature figure: one molecule — cyclohexene, the Diels-Alder
-             product from the Digital Discovery paper — carried through the
-             three representations this research moves between. The
-             highlighted atom is the same one in 2D and 3D: a graph
-             neighbourhood, then the matching real-space cutoff of an MLIP.
-             The shapes are defined once and placed twice: side by side on a
-             wide screen, stacked on a narrow one. currentColor throughout,
-             so the whole thing inverts with the theme.
+             Signature figure: cyclohexene — the Diels-Alder product from the
+             Digital Discovery paper — carried through the three
+             representations this research moves between. The same atom is
+             highlighted in 2D and 3D: its bonded neighbours in the graph,
+             then a through-space neighbour (dashed, not a bond) that only
+             coordinates can see. Shapes are defined once and placed twice:
+             side by side above 620px, stacked below it.
              ============================================================ -->
         <figure class="repr reveal" role="img"
-                aria-label="One molecule carried through three representations: a tokenised SMILES string read by sequence models, a molecular graph with one atom's neighbourhood highlighted for graph neural networks, and the same molecule as 3D coordinates with the matching real-space cutoff of a machine-learned interatomic potential.">
+                aria-label="Cyclohexene in three representations: a SMILES string read by sequence models, a molecular graph with one atom's bonded neighbourhood highlighted for graph neural networks, and 3D coordinates where the same atom gains a through-space neighbour that the graph does not encode, as read by machine-learned interatomic potentials.">
           <svg class="repr-defs" width="0" height="0" aria-hidden="true">
     <defs>
-      <g id="rep-1d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14.5" text-anchor="middle">
-      <rect x="29" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="54" y="57" width="22" height="30" rx="6" fill="var(--accent-soft)" />
-      <rect x="79" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="104" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="129" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="154" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="179" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="204" y="57" width="22" height="30" rx="6" fill="var(--tok-bg)" />
-      <rect x="229" y="57" width="22" height="30" rx="6" fill="var(--accent-soft)" />
-      <text x="40" y="77" fill="var(--text)">C</text>
-      <text x="65" y="77" fill="var(--accent-text)" font-weight="600">1</text>
-      <text x="90" y="77" fill="var(--text)">=</text>
-      <text x="115" y="77" fill="var(--text)">C</text>
-      <text x="140" y="77" fill="var(--text)">C</text>
-      <text x="165" y="77" fill="var(--text)">C</text>
-      <text x="190" y="77" fill="var(--text)">C</text>
-      <text x="215" y="77" fill="var(--text)">C</text>
-      <text x="240" y="77" fill="var(--accent-text)" font-weight="600">1</text>
+      <g id="rep-1d">
+      <rect x="52" y="23" width="96" height="26" rx="7" fill="var(--tok-bg)" />
+      <text x="100" y="41" text-anchor="middle" font-size="15" fill="var(--text)"
+            font-family="ui-monospace, SFMono-Regular, Menlo, monospace">C<tspan
+            fill="var(--accent-text)" font-weight="600">1</tspan>=CCCCC<tspan
+            fill="var(--accent-text)" font-weight="600">1</tspan></text>
       </g>
       <g id="rep-1d-label" text-anchor="middle">
-      <text x="140" y="148" font-size="13.5" font-weight="600" fill="var(--text)">1D &#183; SMILES</text>
-      <text x="140" y="166" font-size="12.5" fill="var(--text-muted)">Sequence models</text>
+      <text x="100" y="78" font-size="12" font-weight="600" fill="var(--text)">1D &#183; SMILES</text>
+      <text x="100" y="93" font-size="11" fill="var(--text-muted)">Sequence models</text>
       </g>
       <g id="rep-2d">
-      <g stroke="var(--text)" stroke-width="1.7" stroke-linecap="round" opacity="0.8">
-        <path d="M140.0 34.0 L172.9 53.0" />
-        <path d="M172.9 53.0 L172.9 91.0" />
-        <path d="M172.9 91.0 L140.0 110.0" />
-        <path d="M107.1 53.0 L140.0 34.0" />
-        <path d="M142.8 40.6 L165.8 53.9" />
+      <g stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" opacity="0.8">
+        <path d="M100.0 10.0 L122.5 23.0" /><path d="M122.5 23.0 L122.5 49.0" />
+        <path d="M122.5 49.0 L100.0 62.0" /><path d="M77.5 23.0 L100.0 10.0" />
+        <path d="M102.1 14.7 L117.4 23.5" />
       </g>
-      <g stroke="var(--accent-text)" stroke-width="2.6" stroke-linecap="round">
-        <path d="M140.0 110.0 L107.1 91.0" />
-        <path d="M107.1 91.0 L107.1 53.0" />
+      <g stroke="var(--accent-text)" stroke-width="2.2" stroke-linecap="round">
+        <path d="M100.0 62.0 L77.5 49.0" /><path d="M77.5 49.0 L77.5 23.0" />
       </g>
       <g fill="var(--text)">
-        <circle cx="140.0" cy="34.0" r="4.8" />
-        <circle cx="172.9" cy="53.0" r="4.8" />
-        <circle cx="172.9" cy="91.0" r="4.8" />
-        <circle cx="140.0" cy="110.0" r="4.8" />
-        <circle cx="107.1" cy="53.0" r="4.8" />
+        <circle cx="100.0" cy="10.0" r="3.4" />
+        <circle cx="122.5" cy="23.0" r="3.4" />
+        <circle cx="122.5" cy="49.0" r="3.4" />
+        <circle cx="100.0" cy="62.0" r="3.4" />
+        <circle cx="77.5" cy="23.0" r="3.4" />
       </g>
-      <circle cx="107.1" cy="91.0" r="6.8" fill="var(--accent-text)" />
+      <circle cx="77.5" cy="49.0" r="4.8" fill="var(--accent-text)" />
       </g>
       <g id="rep-2d-label" text-anchor="middle">
-      <text x="140" y="148" font-size="13.5" font-weight="600" fill="var(--text)">2D &#183; Molecular graph</text>
-      <text x="140" y="166" font-size="12.5" fill="var(--text-muted)">Graph neural networks</text>
+      <text x="100" y="78" font-size="12" font-weight="600" fill="var(--text)">2D &#183; Graph</text>
+      <text x="100" y="93" font-size="11" fill="var(--text-muted)">Graph neural networks</text>
       </g>
       <g id="rep-3d">
-      <circle cx="120.0" cy="90.2" r="34" stroke="var(--accent-text)"
-              stroke-width="1.4" stroke-dasharray="4 5" opacity="0.5" />
-      <g stroke="var(--text)" stroke-width="1.7" stroke-linecap="round">
+      <g stroke="var(--text)" stroke-width="1.5" stroke-linecap="round">
         <g opacity="0.3">
-          <path d="M100.0 72.0 L120.0 53.8" />
-          <path d="M120.0 53.8 L160.0 53.8" />
-          <path d="M160.0 53.8 L180.0 72.0" />
-          <path d="M126.0 58.1 L154.0 58.1" />
+          <path d="M74.0 36.0 L87.0 18.1" /><path d="M87.0 18.1 L113.0 22.1" />
+          <path d="M113.0 22.1 L126.0 36.0" />
         </g>
-        <g opacity="0.8">
-          <path d="M180.0 72.0 L160.0 90.2" />
-          <path d="M160.0 90.2 L120.0 90.2" />
-          <path d="M120.0 90.2 L100.0 72.0" />
+        <g opacity="0.85">
+          <path d="M126.0 36.0 L113.0 53.9" /><path d="M113.0 53.9 L87.0 49.9" />
+          <path d="M87.0 49.9 L74.0 36.0" />
         </g>
       </g>
-      <g fill="var(--text)">
-        <circle cx="120.0" cy="53.8" r="4" opacity="0.35" />
-        <circle cx="160.0" cy="53.8" r="4" opacity="0.35" />
-        <circle cx="180.0" cy="72.0" r="5.4" />
-        <circle cx="100.0" cy="72.0" r="5.4" />
-        <circle cx="160.0" cy="90.2" r="6.4" />
+      <path d="M87.0 49.9 L113.0 22.1" stroke="var(--accent-text)" stroke-width="1.3"
+            stroke-dasharray="2.5 3" opacity="0.75" />
+      <g>
+        <circle cx="126.0" cy="36.0" r="5.9" fill="var(--bg-alt)" />
+        <circle cx="126.0" cy="36.0" r="4.2" fill="var(--text)" />
+        <circle cx="113.0" cy="53.9" r="6.7" fill="var(--bg-alt)" />
+        <circle cx="113.0" cy="53.9" r="5.0" fill="var(--text)" />
+        <circle cx="74.0" cy="36.0" r="5.9" fill="var(--bg-alt)" />
+        <circle cx="74.0" cy="36.0" r="4.2" fill="var(--text)" />
+        <circle cx="87.0" cy="18.1" r="5.2" fill="var(--bg-alt)" />
+        <circle cx="87.0" cy="18.1" r="3.5" fill="var(--text)" opacity="0.45" />
+        <circle cx="113.0" cy="22.1" r="5.2" fill="var(--bg-alt)" />
+        <circle cx="113.0" cy="22.1" r="3.5" fill="var(--text)" opacity="0.45" />
       </g>
-      <circle cx="120.0" cy="90.2" r="7.2" fill="var(--accent-text)" />
+      <circle cx="87.0" cy="49.9" r="6.7" fill="var(--bg-alt)" />
+      <circle cx="87.0" cy="49.9" r="5.0" fill="var(--accent-text)" />
       </g>
       <g id="rep-3d-label" text-anchor="middle">
-      <text x="140" y="148" font-size="13.5" font-weight="600" fill="var(--text)">3D &#183; Geometry</text>
-      <text x="140" y="166" font-size="12.5" fill="var(--text-muted)">Interatomic potentials</text>
+      <text x="100" y="78" font-size="12" font-weight="600" fill="var(--text)">3D &#183; Geometry</text>
+      <text x="100" y="93" font-size="11" fill="var(--text-muted)">Interatomic potentials</text>
       </g>
     </defs>
           </svg>
 
-          <svg class="repr-wide" viewBox="0 0 840 175" fill="none" aria-hidden="true">
-      <use href="#rep-1d" transform="translate(-20 0)" /><use href="#rep-1d-label" transform="translate(-20 0)" />
-      <use href="#rep-2d" transform="translate(285 0)" /><use href="#rep-2d-label" transform="translate(285 0)" />
-      <use href="#rep-3d" transform="translate(560 0)" /><use href="#rep-3d-label" transform="translate(560 0)" />
-      <g stroke="var(--text)" stroke-width="1.4" stroke-linecap="round" opacity="0.26" fill="none">
-        <path d="M287 72 L331 72" /><path d="M324 66.5 L331 72 L324 77.5" />
-        <path d="M532 72 L576 72" /><path d="M569 66.5 L576 72 L569 77.5" />
+          <svg class="repr-wide" viewBox="0 0 700 100" fill="none" aria-hidden="true">
+      <use href="#rep-1d" transform="translate(0 0)" /><use href="#rep-1d-label" transform="translate(0 0)" />
+      <use href="#rep-2d" transform="translate(250 0)" /><use href="#rep-2d-label" transform="translate(250 0)" />
+      <use href="#rep-3d" transform="translate(500 0)" /><use href="#rep-3d-label" transform="translate(500 0)" />
+      <g stroke="var(--text)" stroke-width="1.2" stroke-linecap="round" opacity="0.25" fill="none">
+        <path d="M217 36 L258 36" /><path d="M252 31.5 L258 36 L252 40.5" />
+        <path d="M452 36 L493 36" /><path d="M487 31.5 L493 36 L487 40.5" />
       </g>
           </svg>
 
-          <svg class="repr-tall" viewBox="0 0 280 585" fill="none" aria-hidden="true">
-      <use href="#rep-1d" /><use href="#rep-1d-label" />
-      <use href="#rep-2d" transform="translate(0 205)" /><use href="#rep-2d-label" transform="translate(0 205)" />
-      <use href="#rep-3d" transform="translate(0 410)" /><use href="#rep-3d-label" transform="translate(0 410)" />
-      <g stroke="var(--text)" stroke-width="1.4" stroke-linecap="round" opacity="0.26" fill="none">
-        <path d="M140 181 L140 213" /><path d="M134.5 206 L140 213 L145.5 206" />
-        <path d="M140 386 L140 418" /><path d="M134.5 411 L140 418 L145.5 411" />
+          <svg class="repr-tall" viewBox="0 0 200 340" fill="none" aria-hidden="true">
+      <use href="#rep-1d" transform="translate(0 0)" /><use href="#rep-1d-label" transform="translate(0 0)" />
+      <use href="#rep-2d" transform="translate(0 120)" /><use href="#rep-2d-label" transform="translate(0 120)" />
+      <use href="#rep-3d" transform="translate(0 240)" /><use href="#rep-3d-label" transform="translate(0 240)" />
+      <g stroke="var(--text)" stroke-width="1.2" stroke-linecap="round" opacity="0.25" fill="none">
+        <path d="M100 101 L100 123" /><path d="M95.5 117 L100 123 L104.5 117" />
+        <path d="M100 221 L100 243" /><path d="M95.5 237 L100 243 L104.5 237" />
       </g>
           </svg>
         </figure>
