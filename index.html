@@ -119,11 +119,92 @@
          ABOUT
          ============================================================ -->
     <section id="about" class="band band--alt">
-      <div class="wrap wrap--prose">
+      <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">About</span>
+          <span class="eyebrow">Chimie ParisTech &middot; Université PSL</span>
           <h2>Learning across molecular representations.</h2>
         </div>
+
+        <!-- ============================================================
+             Signature figure: the same molecule (cyclohexene, the Diels-Alder
+             product from the Digital Discovery paper) in the three
+             representations this research moves between. The highlighted atom
+             is the same one in 2D and 3D: a graph neighbourhood on the left,
+             the matching real-space cutoff on the right.
+             ============================================================ -->
+        <div class="repr-strip" role="img" aria-label="The same molecule in three representations: a SMILES string read by sequence models, a molecular graph read by graph neural networks, and 3D coordinates with a neighbourhood cutoff read by machine-learned interatomic potentials.">
+
+          <figure class="repr reveal">
+            <div class="repr-art repr-smiles" aria-hidden="true">
+              <span class="tok">C</span><span class="tok tok--ring">1</span><span class="tok">=</span><span class="tok">C</span><span class="tok">C</span><span class="tok">C</span><span class="tok">C</span><span class="tok">C</span><span class="tok tok--ring">1</span>
+            </div>
+            <figcaption><b>1D &middot; SMILES</b><span>Sequence models</span></figcaption>
+          </figure>
+
+          <figure class="repr reveal">
+            <div class="repr-art" aria-hidden="true">
+              <svg viewBox="0 0 170 170" fill="none">
+                <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.8">
+                  <path d="M85 39 L124.8 62" />
+                  <path d="M124.8 62 L124.8 108" />
+                  <path d="M124.8 108 L85 131" />
+                  <path d="M45.2 62 L85 39" />
+                  <path d="M88.5 46.8 L116.3 62.9" />
+                </g>
+                <g stroke="var(--accent-text)" stroke-width="2.4" stroke-linecap="round">
+                  <path d="M85 131 L45.2 108" />
+                  <path d="M45.2 108 L45.2 62" />
+                </g>
+                <g fill="currentColor">
+                  <circle cx="85" cy="39" r="5" />
+                  <circle cx="124.8" cy="62" r="5" />
+                  <circle cx="124.8" cy="108" r="5" />
+                  <circle cx="85" cy="131" r="5" />
+                  <circle cx="45.2" cy="62" r="5" />
+                </g>
+                <circle cx="45.2" cy="108" r="6.8" fill="var(--accent-text)" />
+              </svg>
+            </div>
+            <figcaption><b>2D &middot; Molecular graph</b><span>Graph neural networks</span></figcaption>
+          </figure>
+
+          <figure class="repr reveal">
+            <div class="repr-art" aria-hidden="true">
+              <svg viewBox="0 0 170 170" fill="none">
+                <g transform="translate(85 88) scale(1.1) translate(-85 -88)">
+                <!-- neighbourhood cutoff around the highlighted atom -->
+                <circle cx="61" cy="114" r="42" stroke="var(--accent-text)" stroke-width="1.4"
+                        stroke-dasharray="4 5" opacity="0.55" />
+                <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <g opacity="0.32">                    <!-- far side of the ring -->
+                    <path d="M37 88 L61 57" />
+                    <path d="M61 57 L109 62" />
+                    <path d="M109 62 L133 88" />
+                    <path d="M68.2 62.8 L101.8 66.3" />  <!-- the C=C, same bond as in 2D -->
+                  </g>
+                  <g opacity="0.8">                     <!-- near side -->
+                    <path d="M133 88 L109 118" />
+                    <path d="M109 118 L61 114" />
+                    <path d="M61 114 L37 88" />
+                  </g>
+                </g>
+                <g fill="currentColor">
+                  <circle cx="61" cy="57" r="4.4" opacity="0.38" />
+                  <circle cx="109" cy="62" r="4.4" opacity="0.38" />
+                  <circle cx="133" cy="88" r="6.2" />
+                  <circle cx="37" cy="88" r="6.2" />
+                  <circle cx="109" cy="118" r="7.5" />
+                </g>
+                <circle cx="61" cy="114" r="7.8" fill="var(--accent-text)" />
+                </g>
+              </svg>
+            </div>
+            <figcaption><b>3D &middot; Geometry</b><span>Interatomic potentials</span></figcaption>
+          </figure>
+
+        </div>
+
+        <div class="wrap wrap--prose">
         <p class="intro reveal">
           I am a final-year PhD candidate at Chimie ParisTech &ndash; Université PSL,
           advised by <a href="https://scholar.google.com/citations?user=tj4A19wAAAAJ" target="_blank" rel="noopener">Dr. Thijs Stuyver</a>,
@@ -142,6 +223,7 @@
           at the Institute of Automation, Chinese Academy of Sciences. I am also broadly interested
           in <strong>large language models</strong>.
         </p>
+        </div>
       </div>
     </section>
 
@@ -151,7 +233,6 @@
     <section id="news" class="band">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">News</span>
           <h2>What's new.</h2>
         </div>
         <ul class="news-list reveal">
@@ -169,7 +250,7 @@
     <section id="publications" class="band band--alt">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Publications</span>
+          <span class="eyebrow">7 papers &middot; 2022 &ndash; 2026</span>
           <h2>Selected work.</h2>
           <p class="section-note">See my <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the full, up-to-date list.</p>
         </div>
@@ -299,7 +380,6 @@
     <section id="awards" class="band">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Recognition</span>
           <h2>Awards &amp; service.</h2>
         </div>
 

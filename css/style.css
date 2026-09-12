@@ -137,7 +137,7 @@ img { max-width: 100%; }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-text);
+  color: var(--text-muted);   /* a label, not an action: blue is spent elsewhere */
 }
 .section-note {
   margin: 14px 0 0;
@@ -232,14 +232,6 @@ img { max-width: 100%; }
   text-align: center;
   overflow: hidden;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -30% 0 auto;
-  height: 620px;
-  background: radial-gradient(ellipse 60% 50% at 50% 40%, var(--accent-soft), transparent 70%);
-  pointer-events: none;
-}
 .hero > * { position: relative; }
 
 .avatar {
@@ -274,8 +266,9 @@ img { max-width: 100%; }
   margin-top: 22px;
   padding: 6px 16px;
   border-radius: 980px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -328,6 +321,70 @@ img { max-width: 100%; }
 .intro strong { color: var(--text); font-weight: 600; }
 
 /* =========================================================
+   Signature figure — one molecule, three representations
+   The only place a saturated accent appears outside an action.
+   ========================================================= */
+.repr-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0 0 clamp(40px, 6vw, 64px);
+}
+.repr {
+  margin: 0;
+  padding: 24px 18px 22px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.repr-art {
+  height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+.repr-art svg { width: 168px; height: 168px; }
+
+.repr figcaption b {
+  display: block;
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+.repr figcaption span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+/* 1D panel: the string as the tokens a sequence model actually sees */
+.repr-smiles {
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tok {
+  width: 26px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--bg-alt);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+[data-theme="dark"] .tok { background: #000; }
+.tok--ring {                 /* the ring-closure pair — the bit 1D has to encode */
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* =========================================================
    News — hairline list rows
    ========================================================= */
 .news-list {
@@ -353,7 +410,7 @@ img { max-width: 100%; }
 .news-list .date {
   flex-shrink: 0;
   width: 92px;
-  color: var(--accent-text);
+  color: var(--text-muted);   /* weight and position carry it, not hue */
   font-weight: 600;
   font-size: 0.8rem;
   letter-spacing: 0;
@@ -389,9 +446,10 @@ img { max-width: 100%; }
 .pub-thumb img {
   display: block;
   width: 100%;
-  height: 190px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   object-fit: contain;
-  padding: 14px;
+  padding: 12px;
 }
 
 .pub-body {
@@ -500,6 +558,13 @@ img { max-width: 100%; }
   .pub-list, .card-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
+@media (max-width: 760px) {
+  .repr-strip { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .repr { padding: 20px 18px 18px; }
+  .repr-art { height: 140px; }
+  .repr-art svg { width: 140px; height: 140px; }
+}
+
 @media (max-width: 620px) {
   body { font-size: 16px; }
   .nav-brand { display: none; }
@@ -569,7 +634,7 @@ img { max-width: 100%; }
     --border-strong: rgba(255, 255, 255, 0.6);
     --accent-text: #7ec0ff;
   }
-  .pub, .card, .news-list { border-color: var(--border); }
+  .pub, .card, .news-list, .repr { border-color: var(--border); }
   .nav {
     background: var(--bg);
     -webkit-backdrop-filter: none;
@@ -581,4 +646,5 @@ img { max-width: 100%; }
    (#1c1c1e on #121214 is 1.10:1), so the edge carries the separation. */
 [data-theme="dark"] .pub,
 [data-theme="dark"] .card,
-[data-theme="dark"] .news-list { border-color: var(--border); }
+[data-theme="dark"] .news-list,
+[data-theme="dark"] .repr { border-color: var(--border); }
