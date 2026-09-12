@@ -16,7 +16,8 @@
   /* Lines & accents */
   --border: rgba(0, 0, 0, 0.09);
   --border-strong: rgba(0, 0, 0, 0.18);
-  --accent: #0071e3;
+  --accent: #0071e3;          /* filled surfaces only (white-on-blue = 4.70:1) */
+  --accent-text: #0062c4;     /* blue TEXT: 5.93:1 on white, 5.44:1 on #f5f5f7 */
   --accent-hover: #0077ed;
   --accent-soft: rgba(0, 113, 227, 0.1);
 
@@ -38,7 +39,7 @@
 
 [data-theme="dark"] {
   --bg: #000000;
-  --bg-alt: #0a0a0c;
+  --bg-alt: #121214;         /* 1.12:1 against #000 — band structure stays visible */
   --card: #1c1c1e;
   --card-alt: #1c1c1e;
 
@@ -49,6 +50,7 @@
   --border: rgba(255, 255, 255, 0.12);
   --border-strong: rgba(255, 255, 255, 0.26);
   --accent: #2997ff;
+  --accent-text: #2997ff;     /* 6.96:1 on #000, 5.64:1 on #1c1c1e */
   --accent-hover: #57aaff;
   --accent-soft: rgba(41, 151, 255, 0.14);
 
@@ -74,7 +76,7 @@ body {
   /* SF Pro on Apple devices, Inter everywhere else */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
                "Inter", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
-  font-size: 17px;
+  font-size: 1.0625rem;       /* 17px at default, but scales with the user's setting */
   line-height: 1.47059;
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
@@ -91,7 +93,7 @@ h1, h2, h3 {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: none;
   transition: color 0.2s var(--ease), opacity 0.2s var(--ease);
 }
@@ -135,7 +137,7 @@ img { max-width: 100%; }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .section-note {
   margin: 14px 0 0;
@@ -217,6 +219,9 @@ img { max-width: 100%; }
   transition: background 0.2s var(--ease), transform 0.3s var(--ease);
 }
 .theme-toggle:hover { background: var(--accent-soft); transform: rotate(-18deg); }
+.theme-toggle svg { display: block; }
+[data-theme="light"] .theme-toggle .icon-sun,
+[data-theme="dark"]  .theme-toggle .icon-moon { display: none; }
 
 /* =========================================================
    Hero
@@ -270,7 +275,7 @@ img { max-width: 100%; }
   padding: 6px 16px;
   border-radius: 980px;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -332,6 +337,7 @@ img { max-width: 100%; }
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--card);
+  border: 1px solid transparent;
   box-shadow: var(--shadow-sm);
 }
 .news-list li {
@@ -347,7 +353,7 @@ img { max-width: 100%; }
 .news-list .date {
   flex-shrink: 0;
   width: 92px;
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 600;
   font-size: 0.8rem;
   letter-spacing: 0;
@@ -370,6 +376,7 @@ img { max-width: 100%; }
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--card);
+  border: 1px solid transparent;
   box-shadow: var(--shadow-sm);
   transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
 }
@@ -411,7 +418,7 @@ img { max-width: 100%; }
   margin: 14px 0 0;
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--border-strong);
+  color: var(--text-muted);   /* the · separators: 5.07:1, was 1.53:1 */
 }
 .pub-links a { margin-right: 2px; }
 
@@ -428,6 +435,7 @@ img { max-width: 100%; }
   padding: 30px 32px;
   border-radius: var(--radius);
   background: var(--card);
+  border: 1px solid transparent;
   box-shadow: var(--shadow-sm);
 }
 .card h3 {
@@ -520,3 +528,57 @@ img { max-width: 100%; }
   font-size: 0.85em;
   white-space: nowrap;
 }
+
+/* =========================================================
+   Accessibility accommodations
+   Apple: "If your app doesn't provide this minimum contrast by default,
+   ensure it at least provides a higher contrast color scheme when the
+   system setting Increase Contrast is turned on." (accessibility.md)
+   ========================================================= */
+
+/* Touch: 44x44 is the mobile default control size; 28x28 the floor.
+   Pointer devices keep the compact 30px chrome. (accessibility.md) */
+@media (pointer: coarse) {
+  .theme-toggle { width: 44px; height: 44px; }
+  .nav-links a { padding: 12px 12px; }
+  .links a { padding: 12px 20px; }
+}
+
+/* Some people turn translucency off; the glass bar must still be a bar. */
+@media (prefers-reduced-transparency: reduce) {
+  .nav {
+    background: var(--bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Increase Contrast: firm up every secondary ink and hairline. */
+@media (prefers-contrast: more) {
+  :root {
+    --text-2: #2b2b2e;
+    --text-muted: #4b4b50;
+    --border: rgba(0, 0, 0, 0.28);
+    --border-strong: rgba(0, 0, 0, 0.55);
+    --accent-text: #00468f;   /* 8.6:1 on white */
+  }
+  [data-theme="dark"] {
+    --text-2: #ebebf0;
+    --text-muted: #b4b4bb;
+    --border: rgba(255, 255, 255, 0.35);
+    --border-strong: rgba(255, 255, 255, 0.6);
+    --accent-text: #7ec0ff;
+  }
+  .pub, .card, .news-list { border-color: var(--border); }
+  .nav {
+    background: var(--bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* In dark mode fill alone no longer separates a card from its band
+   (#1c1c1e on #121214 is 1.10:1), so the edge carries the separation. */
+[data-theme="dark"] .pub,
+[data-theme="dark"] .card,
+[data-theme="dark"] .news-list { border-color: var(--border); }

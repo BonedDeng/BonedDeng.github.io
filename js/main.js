@@ -7,11 +7,15 @@
   const root = document.documentElement;
   const toggle = document.getElementById("theme-toggle");
   if (!toggle) return;
-  const icon = toggle.querySelector(".theme-icon");
 
+  // Which icon shows is decided in CSS by [data-theme]; JS only keeps the
+  // accessible name honest about what pressing the button will do.
   function apply(theme) {
     root.setAttribute("data-theme", theme);
-    icon.textContent = theme === "dark" ? "☀️" : "🌙";
+    toggle.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light appearance" : "Switch to dark appearance"
+    );
   }
 
   apply(root.getAttribute("data-theme") || "light");
@@ -90,9 +94,15 @@
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
-      links.forEach(function (l) { l.classList.remove("is-active"); });
+      links.forEach(function (l) {
+        l.classList.remove("is-active");
+        l.removeAttribute("aria-current");
+      });
       const link = byId[entry.target.id];
-      if (link) link.classList.add("is-active");
+      if (link) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "true");   // not colour alone
+      }
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
 
