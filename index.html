@@ -6,11 +6,13 @@
   <!-- ============================================================
        EDIT ME: page title shown in the browser tab / search results
        ============================================================ -->
-  <title>Bowen Deng — AI for Chemistry & Materials</title>
+  <title>Bowen Deng — AI for Chemistry &amp; Materials</title>
   <meta name="description" content="Personal homepage of Bowen Deng, PhD candidate at Chimie ParisTech – Université PSL (advised by Thijs Stuyver), working on AI for chemistry and materials: graph neural networks and machine-learned interatomic potentials." />
   <meta name="author" content="Bowen Deng" />
   <meta name="keywords" content="Bowen Deng, AI for chemistry, machine learning for materials, graph neural networks, machine-learned interatomic potentials, thermochemistry, molecular property prediction, Chimie ParisTech, PSL, Thijs Stuyver" />
   <link rel="canonical" href="https://boneddeng.github.io/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
   <!-- Structured data: helps search engines identify THIS Bowen Deng (vs. namesakes) -->
   <script type="application/ld+json">
@@ -34,7 +36,7 @@
   </script>
 
   <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Bowen Deng — AI for Chemistry & Materials" />
+  <meta property="og:title" content="Bowen Deng — AI for Chemistry &amp; Materials" />
   <meta property="og:description" content="PhD candidate working on AI for chemistry and materials." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://boneddeng.github.io/" />
@@ -47,31 +49,81 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
+  <!-- Type: SF Pro is used on Apple devices via -apple-system; Inter is the
+       fallback face for everyone else. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Set the theme before first paint so there is no flash of the wrong mode,
+       and arm the scroll-reveal styles only when JS is available. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("js");
+      var stored = localStorage.getItem("theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+    })();
+  </script>
 </head>
 <body>
-  <!-- Theme toggle -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <span class="theme-icon">🌙</span>
-  </button>
 
-  <main class="container">
+  <!-- ============================================================
+       STICKY GLASS NAV
+       ============================================================ -->
+  <nav class="nav" aria-label="Section navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">Bowen Deng</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
 
     <!-- ============================================================
-         HERO / ABOUT
+         HERO
          ============================================================ -->
     <header class="hero">
-      <img src="assets/profile.jpg" alt="Portrait photo" class="avatar"
+      <img src="assets/profile.jpg" alt="Portrait photo of Bowen Deng" class="avatar"
            onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23e5e7eb%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2216%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eyour photo%3C/text%3E%3C/svg%3E'" />
-      <div class="hero-text">
-        <!-- EDIT ME: your name -->
-        <h1>Bowen <span class="lastname">Deng</span></h1>
-        <!-- EDIT ME: one-line tagline -->
-        <p class="tagline">PhD Candidate · AI for Chemistry &amp; Materials</p>
-        <p class="intro">
+      <!-- EDIT ME: your name -->
+      <h1>Bowen <span class="lastname">Deng</span></h1>
+      <!-- EDIT ME: one-line tagline -->
+      <p class="tagline">PhD Candidate · AI for Chemistry &amp; Materials</p>
+      <p><span class="badge">I am on the job market (industry &amp; academia) starting 2026</span></p>
+
+      <!-- Social / contact links -->
+      <nav class="links" aria-label="Contact and profiles">
+        <a class="primary" href="mailto:bowen.deng@chimieparistech.psl.eu">Email</a>
+        <!-- CV download hidden while polishing — re-enable when ready:
+        <a href="assets/cv.pdf">CV</a> -->
+        <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://github.com/BonedDeng" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/bowen-deng-436a63421/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/DDBONED1" target="_blank" rel="noopener">X</a>
+      </nav>
+    </header>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about" class="band band--alt">
+      <div class="wrap wrap--prose">
+        <div class="section-head reveal">
+          <span class="eyebrow">About</span>
+          <h2>Learning across molecular representations.</h2>
+        </div>
+        <p class="intro reveal">
           I am a final-year PhD candidate at Chimie ParisTech &ndash; Université PSL,
           advised by <a href="https://scholar.google.com/citations?user=tj4A19wAAAAJ" target="_blank" rel="noopener">Dr. Thijs Stuyver</a>,
           working at the intersection of
@@ -82,206 +134,213 @@
           and <strong>3D geometry</strong> with machine-learned interatomic potentials
           &mdash; for reaction discovery, thermochemistry, and molecular / materials property
           prediction, building models that are accurate, data-efficient, and physically grounded.
-          <br /><br />
+        </p>
+        <p class="intro reveal">
           Previously, I completed my MSc with Prof. Shuangliang Zhao,
           and worked on computer vision (human action recognition) with Dr. Dongchang Liu
           at the Institute of Automation, Chinese Academy of Sciences. I am also broadly interested
           in <strong>large language models</strong>.
-          <br /><br />
-          <em>I am on the job market (industry &amp; academia) starting 2026.</em>
         </p>
-
-        <!-- Social / contact links -->
-        <nav class="links">
-          <a href="mailto:bowen.deng@chimieparistech.psl.eu">Email</a>
-          <!-- CV download hidden while polishing — re-enable when ready:
-          <a href="assets/cv.pdf">CV</a> -->
-          <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Scholar</a>
-          <a href="https://github.com/BonedDeng" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/bowen-deng-436a63421/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://x.com/DDBONED1" target="_blank" rel="noopener">X</a>
-        </nav>
       </div>
-    </header>
+    </section>
 
     <!-- ============================================================
          NEWS
          ============================================================ -->
-    <section id="news">
-      <h2>News</h2>
-      <ul class="news-list">
-        <!-- EDIT ME: add newest on top. Keep the list short (5–8 items). -->
-        <li><span class="date">2026</span> <em>MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</em> accepted in <em>Journal of Chemical Theory and Computation</em>. I am on the job market!</li>
-        <li><span class="date">2025&nbsp;·&nbsp;Nov</span> Paper on screening Diels–Alder reaction space published in <em>Digital Discovery</em>.</li>
-        <li><span class="date">2025</span> Paper on graph-based thermodynamic property prediction published in <em>J. Chem. Inf. Model.</em></li>
-      </ul>
+    <section id="news" class="band">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">News</span>
+          <h2>What's new.</h2>
+        </div>
+        <ul class="news-list reveal">
+          <!-- EDIT ME: add newest on top. Keep the list short (5–8 items). -->
+          <li><span class="date">2026</span> <span><em>MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</em> accepted in <em>Journal of Chemical Theory and Computation</em>. I am on the job market!</span></li>
+          <li><span class="date">2025&nbsp;·&nbsp;Nov</span> <span>Paper on screening Diels–Alder reaction space published in <em>Digital Discovery</em>.</span></li>
+          <li><span class="date">2025</span> <span>Paper on graph-based thermodynamic property prediction published in <em>J. Chem. Inf. Model.</em></span></li>
+        </ul>
+      </div>
     </section>
 
     <!-- ============================================================
          PUBLICATIONS
          ============================================================ -->
-    <section id="publications">
-      <h2>Publications</h2>
-      <p class="section-note">See my <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the full, up-to-date list.</p>
+    <section id="publications" class="band band--alt">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Publications</span>
+          <h2>Selected work.</h2>
+          <p class="section-note">See my <a href="https://scholar.google.com/citations?user=wjOkVl4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the full, up-to-date list.</p>
+        </div>
 
-      <ol class="pub-list">
-        <!-- ---- publication item template: copy & edit; fill the "#" links with DOIs/arXiv/code ---- -->
+        <ol class="pub-list">
+          <!-- ---- publication item template: copy & edit; fill the "#" links with DOIs/arXiv/code ---- -->
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub1.png" loading="lazy" alt="Figure: MLIP-enhanced thermochemistry workflow"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</p>
-            <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
-            <p class="pub-venue"><em>Journal of Chemical Theory and Computation</em> (accepted), 2026</p>
-            <p class="pub-links">
-              <a href="https://chemrxiv.org/doi/10.26434/chemrxiv.15003003" target="_blank" rel="noopener">Paper</a> ·
-              <a href="https://github.com/chimie-paristech-CTM/ThermoMLIP" target="_blank" rel="noopener">Code</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub1.png" loading="lazy" alt="Figure: MLIP-enhanced thermochemistry workflow"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">MLIP-Enhanced Thermochemistry Predictions across Organic Chemical Space</p>
+              <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
+              <p class="pub-venue"><em>Journal of Chemical Theory and Computation</em> (accepted), 2026</p>
+              <p class="pub-links">
+                <a href="https://chemrxiv.org/doi/10.26434/chemrxiv.15003003" target="_blank" rel="noopener">Paper</a> ·
+                <a href="https://github.com/chimie-paristech-CTM/ThermoMLIP" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub2.png" loading="lazy" alt="Figure: Diels–Alder reaction screening workflow"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">Screening Diels–Alder reaction space to identify candidate reactions for self-healing polymer applications</p>
-            <p class="pub-authors">Marco Ferrer, <strong>Bowen Deng</strong>, Javier E. Alfonso-Ramos, Thijs Stuyver</p>
-            <p class="pub-venue"><em>Digital Discovery</em>, 4(11), 3400–3410, 2025</p>
-            <p class="pub-links">
-              <a href="https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00340g" target="_blank" rel="noopener">Paper</a> ·
-              <a href="https://chemrxiv.org/engage/chemrxiv/article-details/68222a1f927d1c2e664734b6" target="_blank" rel="noopener">Preprint</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub2.png" loading="lazy" alt="Figure: Diels–Alder reaction screening workflow"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">Screening Diels–Alder reaction space to identify candidate reactions for self-healing polymer applications</p>
+              <p class="pub-authors">Marco Ferrer, <strong>Bowen Deng</strong>, Javier E. Alfonso-Ramos, Thijs Stuyver</p>
+              <p class="pub-venue"><em>Digital Discovery</em>, 4(11), 3400–3410, 2025</p>
+              <p class="pub-links">
+                <a href="https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00340g" target="_blank" rel="noopener">Paper</a> ·
+                <a href="https://chemrxiv.org/engage/chemrxiv/article-details/68222a1f927d1c2e664734b6" target="_blank" rel="noopener">Preprint</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub3.png" loading="lazy" alt="Figure: graph-based thermodynamic property prediction"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">Graph-based deep learning models for thermodynamic property prediction: the interplay between target definition, data distribution, featurization, and model architecture</p>
-            <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
-            <p class="pub-venue"><em>Journal of Chemical Information and Modeling</em>, 65(2), 649–659, 2025</p>
-            <p class="pub-links">
-              <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.4c02014" target="_blank" rel="noopener">Paper</a> ·
-              <a href="https://github.com/chimie-paristech-CTM/thermo_GNN" target="_blank" rel="noopener">Code</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub3.png" loading="lazy" alt="Figure: graph-based thermodynamic property prediction"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">Graph-based deep learning models for thermodynamic property prediction: the interplay between target definition, data distribution, featurization, and model architecture</p>
+              <p class="pub-authors"><strong>Bowen Deng</strong>, Thijs Stuyver</p>
+              <p class="pub-venue"><em>Journal of Chemical Information and Modeling</em>, 65(2), 649–659, 2025</p>
+              <p class="pub-links">
+                <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.4c02014" target="_blank" rel="noopener">Paper</a> ·
+                <a href="https://github.com/chimie-paristech-CTM/thermo_GNN" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub4.png" loading="lazy" alt="Figure: H2O2 catalyst screening volcano plot"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">Iterative machine learning method for screening high-performance catalysts for H<sub>2</sub>O<sub>2</sub> production</p>
-            <p class="pub-authors"><strong>Bowen Deng</strong>, P. Chen, P. Xie, Z. Wei, S. Zhao</p>
-            <p class="pub-venue"><em>Chemical Engineering Science</em>, 267, 118368, 2023</p>
-            <p class="pub-links">
-              <a href="https://doi.org/10.1016/j.ces.2022.118368" target="_blank" rel="noopener">Paper</a> ·
-              <a href="https://github.com/BonedDeng/Iterative-Machine-Learning-Method-for-Screening-Highly-Performance-Catalysts-for-H2O2-Production" target="_blank" rel="noopener">Code</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub4.png" loading="lazy" alt="Figure: H2O2 catalyst screening volcano plot"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">Iterative machine learning method for screening high-performance catalysts for H<sub>2</sub>O<sub>2</sub> production</p>
+              <p class="pub-authors"><strong>Bowen Deng</strong>, P. Chen, P. Xie, Z. Wei, S. Zhao</p>
+              <p class="pub-venue"><em>Chemical Engineering Science</em>, 267, 118368, 2023</p>
+              <p class="pub-links">
+                <a href="https://doi.org/10.1016/j.ces.2022.118368" target="_blank" rel="noopener">Paper</a> ·
+                <a href="https://github.com/BonedDeng/Iterative-Machine-Learning-Method-for-Screening-Highly-Performance-Catalysts-for-H2O2-Production" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub5.png" loading="lazy" alt="Figure: TadML temporal action detection performance"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">TadML: A Fast Temporal Action Detection with Mechanics-MLP</p>
-            <p class="pub-authors"><strong>Bowen Deng</strong>, S. Zhao, D. Liu</p>
-            <p class="pub-venue"><em>Computer Graphics International Conference (CGI)</em>, 28–40, 2023</p>
-            <p class="pub-links">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-031-50069-5_4" target="_blank" rel="noopener">Paper</a> ·
-              <a href="https://arxiv.org/abs/2206.02997" target="_blank" rel="noopener">arXiv</a> ·
-              <a href="https://github.com/BonedDeng/TadML" target="_blank" rel="noopener">Code</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub5.png" loading="lazy" alt="Figure: TadML temporal action detection performance"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">TadML: A Fast Temporal Action Detection with Mechanics-MLP</p>
+              <p class="pub-authors"><strong>Bowen Deng</strong>, S. Zhao, D. Liu</p>
+              <p class="pub-venue"><em>Computer Graphics International Conference (CGI)</em>, 28–40, 2023</p>
+              <p class="pub-links">
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-50069-5_4" target="_blank" rel="noopener">Paper</a> ·
+                <a href="https://arxiv.org/abs/2206.02997" target="_blank" rel="noopener">arXiv</a> ·
+                <a href="https://github.com/BonedDeng/TadML" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub7.png" loading="lazy" alt="Figure: catalysis distillation neural network architecture"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">Catalysis Distillation Neural Network for the Few-Shot Open Catalyst Challenge</p>
-            <p class="pub-authors"><strong>Bowen Deng</strong></p>
-            <p class="pub-venue"><em>arXiv / ChemRxiv</em> (preprint), 2023</p>
-            <p class="pub-links">
-              <a href="https://arxiv.org/abs/2305.19545" target="_blank" rel="noopener">arXiv</a> ·
-              <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6473a7e7be16ad5c570f27b5" target="_blank" rel="noopener">ChemRxiv</a>
-            </p>
-          </div>
-        </li>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub7.png" loading="lazy" alt="Figure: catalysis distillation neural network architecture"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">Catalysis Distillation Neural Network for the Few-Shot Open Catalyst Challenge</p>
+              <p class="pub-authors"><strong>Bowen Deng</strong></p>
+              <p class="pub-venue"><em>arXiv / ChemRxiv</em> (preprint), 2023</p>
+              <p class="pub-links">
+                <a href="https://arxiv.org/abs/2305.19545" target="_blank" rel="noopener">arXiv</a> ·
+                <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6473a7e7be16ad5c570f27b5" target="_blank" rel="noopener">ChemRxiv</a>
+              </p>
+            </div>
+          </li>
 
-        <li class="pub">
-          <div class="pub-thumb">
-            <img src="assets/pub6.png" loading="lazy" alt="Figure: Pd single-atom catalyst for H2O2 production"
-                 onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="pub-body">
-            <p class="pub-title">Palladium-based single atom catalysts for high-performance electrochemical production of hydrogen peroxide</p>
-            <p class="pub-authors">Z. Wei, <strong>Bowen Deng</strong>, P. Chen, T. Zhao, S. Zhao</p>
-            <p class="pub-venue"><em>Chemical Engineering Journal</em>, 428, 131112, 2022</p>
-            <p class="pub-links">
-              <a href="https://doi.org/10.1016/j.cej.2021.131112" target="_blank" rel="noopener">Paper</a>
-            </p>
-          </div>
-        </li>
-        <!-- ---- end list ---- -->
-      </ol>
+          <li class="pub reveal">
+            <div class="pub-thumb">
+              <img src="assets/pub6.png" loading="lazy" alt="Figure: Pd single-atom catalyst for H2O2 production"
+                   onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22100%22%3E%3Crect width=%22160%22 height=%22100%22 fill=%22%23eef2f7%22/%3E%3Ctext x=%2250%25%22 y=%2252%25%22 font-size=%2211%22 fill=%22%239ca3af%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22%3Eteaser%3C/text%3E%3C/svg%3E'" />
+            </div>
+            <div class="pub-body">
+              <p class="pub-title">Palladium-based single atom catalysts for high-performance electrochemical production of hydrogen peroxide</p>
+              <p class="pub-authors">Z. Wei, <strong>Bowen Deng</strong>, P. Chen, T. Zhao, S. Zhao</p>
+              <p class="pub-venue"><em>Chemical Engineering Journal</em>, 428, 131112, 2022</p>
+              <p class="pub-links">
+                <a href="https://doi.org/10.1016/j.cej.2021.131112" target="_blank" rel="noopener">Paper</a>
+              </p>
+            </div>
+          </li>
+          <!-- ---- end list ---- -->
+        </ol>
+      </div>
     </section>
 
     <!-- ============================================================
-         AWARDS
+         AWARDS + ACADEMIC SERVICE
          ============================================================ -->
-    <section id="awards">
-      <h2>Awards</h2>
-      <ul>
-        <li><strong>Kaggle Competitions Silver Medals &times;3</strong> (2022–2026):
-          <ul>
-            <li>Silver — Open Polymer Prediction 2025 (NeurIPS 2025)</li>
-            <li>Silver — NeurIPS 2025 Open Polymer SP16</li>
-            <li>Silver — <!-- third competition: EDIT ME --></li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <section id="awards" class="band">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Recognition</span>
+          <h2>Awards &amp; service.</h2>
+        </div>
 
-    <!-- ============================================================
-         ACADEMIC SERVICE
-         ============================================================ -->
-    <section id="academic-service">
-      <h2>Academic Service</h2>
-      <p>Reviewer for <em>Digital Discovery</em>.</p>
+        <div class="card-grid">
+          <div class="card reveal">
+            <h3>Kaggle Competitions Silver Medals &times;3</h3>
+            <ul class="medal-list">
+              <li><span class="medal">🥈</span> <span>Open Polymer Prediction 2025 (NeurIPS 2025)</span></li>
+              <li><span class="medal">🥈</span> <span>NeurIPS 2025 Open Polymer SP16</span></li>
+              <!-- EDIT ME: third competition — uncomment and fill in the name.
+              <li><span class="medal">🥈</span> <span>Competition name here</span></li>
+              -->
+            </ul>
+            <p class="card-note">2022–2026 · Kaggle Competitions Expert</p>
+          </div>
+
+          <div class="card reveal" id="academic-service">
+            <h3>Academic Service</h3>
+            <p>Reviewer for <em>Digital Discovery</em>.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================================================
          CV download (education/experience details live in the PDF)
          ============================================================ -->
     <!-- CV section hidden while polishing the PDF — re-enable when ready:
-    <section id="cv">
-      <h2>CV</h2>
-      <p class="cv-download"><a href="assets/cv.pdf">↓ Download full CV (PDF)</a></p>
+    <section id="cv" class="band band--alt">
+      <div class="wrap wrap--prose">
+        <div class="section-head reveal"><span class="eyebrow">CV</span><h2>Full CV.</h2></div>
+        <nav class="links"><a class="primary" href="assets/cv.pdf">↓ Download full CV (PDF)</a></nav>
+      </div>
     </section>
     -->
 
-
-    <footer>
-      <p>© <span id="year"></span> Bowen Deng. Built as a static site, hosted on GitHub Pages.</p>
-      <p class="visits" id="visits" hidden>👁 <span id="visit-count">—</span> visits</p>
-    </footer>
   </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Bowen Deng. Built as a static site, hosted on GitHub Pages.</p>
+    <p class="visits" id="visits" hidden>👁 <span id="visit-count">—</span> visits</p>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
