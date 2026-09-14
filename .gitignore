@@ -1,5 +1,5 @@
-# Keep the CV internal — do NOT publish while it's being polished
-assets/cv.pdf
+# assets/cv.pdf is published; cv.html is the local source it is built from
+# (regenerate with ./scripts/build-cv.sh)
 cv.html
 
 # Raw source photo (only the cropped profile.jpg is published)
