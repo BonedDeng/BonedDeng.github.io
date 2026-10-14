@@ -316,6 +316,63 @@ img { max-width: 100%; }
 .intro strong { color: var(--text); font-weight: 600; }
 
 /* =========================================================
+   Research interests — problems / methods / domains, so the
+   shape of the work is legible without reading the paragraph
+   ========================================================= */
+.interests {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: clamp(26px, 3vw, 34px);
+}
+.interests h3 {
+  margin: 0 0 9px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.interests ul { list-style: none; margin: 0; padding: 0; }
+.interests li {
+  padding: 3px 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   Software — the repositories as work in their own right,
+   not as a link hanging off a paper
+   ========================================================= */
+.repo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+.repo-list li {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  padding: 15px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.94rem;
+  color: var(--text-muted);
+}
+.repo-list li:last-child { border-bottom: none; }
+.repo-list .repo-name {
+  flex-shrink: 0;
+  width: 168px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
    News — hairline list rows
    ========================================================= */
 .news-list {
@@ -502,6 +559,9 @@ img { max-width: 100%; }
 
 @media (max-width: 620px) {
   body { font-size: 16px; }
+  .interests { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .repo-list li { flex-direction: column; gap: 4px; padding: 14px 18px; }
+  .repo-list .repo-name { width: auto; }
   .nav-brand { display: none; }
   .nav-links { margin-left: 0; }
   .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 16px; }
@@ -570,7 +630,7 @@ img { max-width: 100%; }
     --border-strong: rgba(255, 255, 255, 0.6);
     --accent-text: #7ec0ff;
   }
-  .pub, .card, .news-list { border-color: var(--border); }
+  .pub, .card, .news-list, .repo-list { border-color: var(--border); }
   .nav {
     background: var(--bg);
     -webkit-backdrop-filter: none;
@@ -582,4 +642,5 @@ img { max-width: 100%; }
    (#1c1c1e on #121214 is 1.10:1), so the edge carries the separation. */
 [data-theme="dark"] .pub,
 [data-theme="dark"] .card,
-[data-theme="dark"] .news-list { border-color: var(--border); }
+[data-theme="dark"] .news-list,
+[data-theme="dark"] .repo-list { border-color: var(--border); }
